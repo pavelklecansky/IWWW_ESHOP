@@ -11,17 +11,9 @@ class User
         }
     }
 
-    public function isAdmin()
+    public function login($username, $password)
     {
-        if (isset($_SESSION["admin"]) && $_SESSION["admin"] == true) {
-            return true;
-        }
-    }
-
-
-    public function login($username_email, $password)
-    {
-        $user = UserRepository::getUserByEmailOrUsername($username_email);
+        $user = UserRepository::getUserByUsername($username);
         if (!$user) {
             return false;
         }
@@ -32,7 +24,7 @@ class User
         } else {
             $_SESSION["loggedin"] = true;
             $_SESSION["userId"] = $user["user_id"];
-            $_SESSION["admin"] = $user["role_id"] == 1;
+            $_SESSION["username"] = $user["username"];
             return true;
         }
     }

@@ -40,6 +40,7 @@ if (isset($_GET["action"])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<?php require_once "./template/navigation.php" ?>
 <?php
 # vykreslení obsahu
 $pathToFile = "./view/" . $_GET["page"] . ".php";
