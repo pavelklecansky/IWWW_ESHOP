@@ -43,6 +43,13 @@ nav ul div li a {
     margin: 5px;
 }
 
+.order-item {
+    width: 100%;
+    background-color: darkkhaki;
+    height: 100px;
+    margin: 5px;
+}
+
 .catalog-img {
     font-size: 100px;
 }

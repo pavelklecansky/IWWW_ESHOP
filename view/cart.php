@@ -2,10 +2,13 @@
     <h2>Shopping cart</h2>
     <?php
 
+    if (isset($_SESSION["cart"])){
+
+
     $totalPrice = 0;
     foreach ($_SESSION["cart"] as $key => $value) {
 
-        $item = $catalog[getBy("id", $key, $catalog)];
+        $item = $catalog[Utils::getBy("id", $key, $catalog)];
         $totalPrice = $totalPrice + ($value["quantity"] * $item["price"]);
         echo '
 <div class="cart-item">
@@ -13,7 +16,7 @@
 ' . $item["img"] . '
 </div>
 <div>
-' . $item["name"] . '
+' . $item["product_name"] . '
 </div>
 <div class="cart-control">
 <div class="cart-price">
@@ -25,13 +28,13 @@
 <div class="cart-quantity">
 ' . ($value["quantity"] * $item["price"]) . '
 </div>
-<a href="/?action=add&id=' . $item["id"] . '" class="cart-button">
+<a href="index.php?action=add&id=' . $item["id"] . '" class="cart-button">
 +
 </a>
-<a href="/?action=remove&id=' . $item["id"] . '" class="cart-button">
+<a href="index.php?action=remove&id=' . $item["id"] . '" class="cart-button">
 -
 </a>
-<a href="/?action=delete&id=' . $item["id"] . '" class="cart-button">
+<a href="index.php?action=delete&id=' . $item["id"] . '" class="cart-button">
 x
 </a>
 </div>
@@ -40,6 +43,7 @@ x
     }
 
     echo "<div id='cart-total-price'>Total price: $totalPrice</div>";
-
+    }
     ?>
+    <a href="./includes/order.inc.php"><button>Vytvořit objednávku</button></a>
 </section>

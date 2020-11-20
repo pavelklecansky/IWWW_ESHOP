@@ -3,9 +3,9 @@
     <ul>
         <div>
             <li><a href="./index.php">Katalog</a></li>
+            <li><a href="./index.php?page=cart">Košík</a></li>
             <?php
             if ($user->isLogged()) {
-                echo '<li><a href="./index.php?page=cart">Košík</a></li>';
                 echo '<li><a href="./index.php?page=orders">Objednávky</a></li>';
             }
             ?>

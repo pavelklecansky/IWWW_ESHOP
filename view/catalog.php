@@ -15,7 +15,7 @@
 <div>
 ' . $item["price"] . '
 </div>
-<a href="/?action=add&id=' . $item["id"] . '" class="catalog-buy-button">
+<a href="index.php?action=add&id=' . $item["id"] . '" class="catalog-buy-button">
 Buy
 </a>
 </div>';

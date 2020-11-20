@@ -9,11 +9,11 @@ if (isset($_POST["submit"])) {
         header("location: ../index.php");
         exit();
     }else{
-        header("location: ../login.php?error=wronglogin");
+        header("location: ../index.php?page=login");
         exit();
     }
 
 } else {
-    header("location: ../login.php");
+    header("location: ../index.php?page=login");
     exit();
 }
